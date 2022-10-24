@@ -5,6 +5,7 @@
     --color: black;
     --secondary-color:white;
     
+    --smaller-font: 0.9rem;
     --important-font: 1.2rem;
     --very-important-font: 1.5rem;
   }
@@ -15,6 +16,7 @@ body {
     /*display: flex;*/
     box-sizing: border-box;
     font-weight: bold;
+    
 }
 
 .main {
@@ -22,7 +24,15 @@ body {
 }
 
 .side {
+    max-width: 40vw;
+    width: 100%;
+}
+.side > div {
+    margin-left:40px;
+}
 
+.sideHeader {
+    max-width: 40rem;
 }
 
 .main-form p, a {
@@ -35,8 +45,11 @@ body {
 }
 
 .form-inputs {
-    padding:50px;
+    width: 100%;
+    padding:30px;
     margin-bottom: 20px;
+    margin-left: -40px;
+    background-color: var(--secondary-color);
 }
 
 .form-inputs h2{
@@ -46,6 +59,8 @@ body {
 .form-inputs {
     border: 1px solid transparent;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width:100%;
+    color:var(--color);
 }
 
 .sign-up-row {
@@ -63,6 +78,16 @@ body {
   margin-right: 7px;
 }
 
+.sign-up-row input:invalid{
+  border: 1px solid #D55C5F;
+  color: #D55C5F;
+  box-shadow: none; /* Remove default red glow in Firefox */
+}
+
+.sign-up-row input:focus:invalid {
+    outline: none;
+  }
+
 .sign-up-item {
     display: flex;
     flex-direction: column;
@@ -72,12 +97,15 @@ label {
     text-align: left;
     margin-top: 7px;
     padding-right: 15px;
+    letter-spacing: 2.5px;
+    font-size: var(--smaller-font);
   }
 
 button {
     padding: 12px 23px;
     border: 1px solid transparent;
     border-radius: 8px;
+    cursor: pointer;
 }
 
 .buttonSignUp {
@@ -88,14 +116,14 @@ button {
 }
 
 .bg-container {
-    margin-right: 50px;
+    
 }
 
 .imageContainer {
     width:45vw; 
     height:100vh; 
     background-image: url('images/background.jpg');
-    background-size:cover;
+    background-size: cover;
 
     display: flex;
     flex-direction: column;
@@ -107,6 +135,7 @@ button {
     margin-top:auto;
 
     text-align: center;
+    letter-spacing: 8px;
     font-size: var(--very-important-font);
     color: var(--secondary-color);
     background-color: rgba(0, 0, 0, 0.35);
@@ -117,3 +146,55 @@ button {
     color: var(--color);
     text-decoration: underline;
 }
+
+@media (max-width: 600px) {
+    .imageContainer {
+      display: none;
+    }
+    body {
+        background-image: url('images/background.jpg');
+        background-size: cover; 
+    }
+    .side {
+        max-width: 100%;
+        width: 100%;
+        color: var(--secondary-color);
+    }
+
+    .side > div {
+        margin-left:0;
+    }
+
+    .sideHeader {
+        background-color: rgba(0, 0, 0, 0.35);
+        padding: 10px;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        font-size:0.9rem;
+    }
+
+    .form-inputs {
+        margin-left: 0;
+        margin-bottom: 0;
+    }
+    
+    .sign-up-row, .sign-up-item {
+        width: 90%;
+    }
+    .sign-up-row input {
+        width: 100%;
+      }
+
+    label {
+        margin-bottom: 15px;
+        margin-top: 10px;
+    }
+
+    .signUpButtonDiv {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.35);
+        padding-top: 10px;
+    }
+  }
