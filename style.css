@@ -1,13 +1,15 @@
 :root {
     --font-family: 'Roboto', arial;
     --main-color: #FFBF69;
+    --light-main-color: #ffcc8a;
 
     --color: black;
     --secondary-color:white;
     
-    --smaller-font: 0.9rem;
+    --smaller-font: 0.8rem;
     --important-font: 1.2rem;
     --very-important-font: 1.5rem;
+    --margin-sider: 25px;
   }
 
 body {
@@ -15,108 +17,20 @@ body {
     margin: 0; padding: 0;
     /*display: flex;*/
     box-sizing: border-box;
-    font-weight: bold;
-    
+}
+
+h3 {
+    font-weight: normal;
+    font-size: 1.3rem;
+}
+
+form {
+    width: 100%;
 }
 
 .main {
     display:flex;
-}
-
-.side {
-    max-width: 40vw;
-    width: 100%;
-}
-.side > div {
-    margin-left:40px;
-}
-
-.sideHeader {
-    max-width: 40rem;
-}
-
-.main-form p, a {
-    font-size: var(--important-font);
-    text-decoration: none;
-}
-
-.main-form a {
-    color: var(--main-color);
-}
-
-.form-inputs {
-    width: 100%;
-    padding:30px;
-    margin-bottom: 20px;
-    margin-left: -40px;
-    background-color: var(--secondary-color);
-}
-
-.form-inputs h2{
-    margin-top: 0;
-}
-
-.form-inputs {
-    border: 1px solid transparent;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    width:100%;
-    color:var(--color);
-}
-
-.sign-up-row {
-    margin-bottom: 20px;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.sign-up-row input {
-  background-color: #FFFFFF;
-  border: 1px solid #D6D9DC;
-  border-radius: 3px;
-  padding: 7px;
-  font-size: 14px;
-  margin-right: 7px;
-}
-
-.sign-up-row input:invalid{
-  border: 1px solid #D55C5F;
-  color: #D55C5F;
-  box-shadow: none; /* Remove default red glow in Firefox */
-}
-
-.sign-up-row input:focus:invalid {
-    outline: none;
-  }
-
-.sign-up-item {
-    display: flex;
-    flex-direction: column;
-}
-
-label {
-    text-align: left;
-    margin-top: 7px;
-    padding-right: 15px;
-    letter-spacing: 2.5px;
-    font-size: var(--smaller-font);
-  }
-
-button {
-    padding: 12px 23px;
-    border: 1px solid transparent;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-.buttonSignUp {
-    background-color: var(--main-color);
-    color:var(--color);
-    font-size: var(--important-font);
-    font-weight: bolder;
-}
-
-.bg-container {
-    
+    min-height: 100vh;
 }
 
 .imageContainer {
@@ -124,6 +38,7 @@ button {
     height:100vh; 
     background-image: url('images/background.jpg');
     background-size: cover;
+    background-position: center center;
 
     display: flex;
     flex-direction: column;
@@ -147,22 +62,132 @@ button {
     text-decoration: underline;
 }
 
+.side {
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sideHeader {
+    max-width: 40rem;
+    margin-left: var(--margin-sider);
+    /*font-size: 1vw;*/
+}
+
+.sideHeader >:first-child {
+    margin-top: 0;
+}
+
+.sideHeader h3 {
+    font-weight: bold;
+}
+
+.main-form p, a {
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.main-form a {
+    color: var(--main-color);
+}
+
+.form-inputs h2{
+    margin-top: 0;
+}
+
+.form-inputs {
+    border: 1px solid transparent;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    color:var(--color);
+    padding:30px;
+    margin-bottom: 20px;
+    background-color: var(--secondary-color);
+}
+
+.sign-up-row {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sign-up-row input {
+  background-color: #FFFFFF;
+  border: 1px solid #D6D9DC;
+  border-radius: 3px;
+  padding: 7px;
+  font-size: 14px;
+  margin-right: 7px;
+}
+
+
+.sign-up-row input:invalid{
+  border: 1px solid #D55C5F;
+  color: #D55C5F;
+  box-shadow: none; /* Remove default red glow in Firefox */
+}
+
+.sign-up-row input:focus:invalid {
+    outline: none;
+  }
+
+.sign-up-item {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    text-align: left;
+    margin-top: 7px;
+    padding-right: 15px;
+    letter-spacing: 2.5px;
+    font-size: var(--smaller-font);
+    text-transform: uppercase;
+  }
+
+.signUpButtonDiv {
+    margin-left: var(--margin-sider);
+}
+
+.signUpButtonDiv p:last-child {
+    margin-bottom: 0;
+}
+
+button {
+    padding: 12px 23px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.buttonSignUp {
+    background-color: var(--main-color);
+    color:var(--color);
+    font-size: var(--important-font);
+    font-weight: bolder;
+}
+
+.buttonSignUp:hover {
+    background-color: var(--light-main-color);
+}
+
 @media (max-width: 600px) {
     .imageContainer {
       display: none;
     }
+
     body {
         background-image: url('images/background.jpg');
         background-size: cover; 
+    }
+
+    .main {
+        width:100vw;
     }
     .side {
         max-width: 100%;
         width: 100%;
         color: var(--secondary-color);
-    }
-
-    .side > div {
-        margin-left:0;
     }
 
     .sideHeader {
@@ -171,10 +196,10 @@ button {
         border: 1px solid transparent;
         border-radius: 8px;
         font-size:0.9rem;
+        margin-left: 0;
     }
 
     .form-inputs {
-        margin-left: 0;
         margin-bottom: 0;
     }
     
@@ -196,5 +221,7 @@ button {
         align-items: center;
         background-color: rgba(0, 0, 0, 0.35);
         padding-top: 10px;
+        margin-left: 0;
     }
+
   }
