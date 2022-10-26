@@ -24,7 +24,6 @@
     --main-color: #857dcc;
     --light-main-color: #948ec9;
     --darker-main-color: #6d63c9;
-    ;
 
     --color: white;
     --secondary-color: black;
@@ -60,6 +59,7 @@ body {
     padding: 0;
     /*display: flex;*/
     box-sizing: border-box;
+    background-color: var(--secondary-color);
 }
 
 a:hover {
