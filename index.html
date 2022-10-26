@@ -8,13 +8,17 @@
     <title>Sign Up</title>
     <link rel="stylesheet" href="resources/normalize.css">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
     <script src="app.js" defer></script>
 </head>
 
 <body>
     <div class="header">
-
+        <button id="themeButton" onclick="toggleTheme()"><span class="material-symbols-outlined">
+            dark_mode
+            </span></button>
     </div>
     <div class="main">
         <div class="imageContainer">
@@ -22,9 +26,8 @@
                 <h1>NICE PAGE</h1>
             </div>
             <p>Photo by <a
-                    href="https://unsplash.com/@julianhochgesang?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Julian
-                    Hochgesang</a> on <a
-                    href="https://unsplash.com/s/photos/day?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+                    href="https://unsplash.com/" id="imageAuthor"></a> on <a
+                    href="https://unsplash.com/" id="imageLink">Unsplash</a>
             </p>
         </div>
         <div class="side">
@@ -41,7 +44,7 @@
             <div class="main-form">
                 <form name="mainForm" action="" method="post">
                     <div class="form-inputs">
-                        <h3>Start your sign up</h3>
+                        <h3>Start your sign up <span> * = required field</span></h3> 
                         <div class="sign-up-row">
                             <div class="sign-up-item">
                                 <label for="first_name">First Name *</label>

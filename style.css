@@ -1,4 +1,5 @@
-:root {
+:root,
+:root.light {
     --font-family: 'Roboto', arial;
     --main-color: #FFBF69;
     --light-main-color: #ffcc8a;
@@ -7,10 +8,50 @@
     --color: black;
     --secondary-color: white;
 
+    --background-color: #FFFFFF;
+    --background-image: url('images/background.jpg');
+    --image-author: 'Julian Hochgesang';
+    --image-link: '';
+
+    --very-smaller-font: 0.7rem;
     --smaller-font: 0.8rem;
     --important-font: 1.2rem;
     --very-important-font: 1.5rem;
     --margin-sider: 25px;
+}
+
+:root.dark {
+    --main-color: #857dcc;
+    --light-main-color: #948ec9;
+    --darker-main-color: #6d63c9;
+    ;
+
+    --color: white;
+    --secondary-color: black;
+
+    --background-color: #24252f;
+    --background-image: url('images/backgroundnight.jpg');
+    --image-author: 'Raphael Nogueira';
+    --image-link: '';
+}
+
+.header {
+    position: fixed;
+    right: 0;
+}
+
+.unFilledIcon {
+    font-variation-settings: 'FILL' 0;
+    color: black;
+}
+
+.filledIcon {
+    font-variation-settings: 'FILL' 1;
+    color: white;
+}
+
+#themeButton {
+    background: none;
 }
 
 body {
@@ -43,7 +84,7 @@ form {
     width: 45vw;
     height: auto;
 
-    background-image: url('images/background.jpg');
+    background-image: var(--background-image);
     background-size: cover;
     background-position: center center;
 
@@ -59,21 +100,34 @@ form {
     text-align: center;
     letter-spacing: 8px;
     font-size: var(--very-important-font);
-    color: var(--secondary-color);
+    color: white;
     background-color: rgba(0, 0, 0, 0.35);
     width: 100%;
 }
 
-.imageContainer a {
+.imageContainer p,
+a {
     color: var(--color);
+}
+
+.imageContainer a {
     text-decoration: underline;
 }
+
+#imageAuthor::after {
+    content: var(--image-author);
+}
+/*#imageLink {
+    content: var(--image-link);
+}*/
 
 .side {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-color: var(--secondary-color);
+    color: var(--color);
 }
 
 .sideHeader {
@@ -88,6 +142,10 @@ form {
 
 .sideHeader h3 {
     font-weight: bold;
+}
+
+h3>span {
+    font-size: var(--very-smaller-font);
 }
 
 .main-form p,
@@ -110,7 +168,7 @@ a {
     color: var(--color);
     padding: 30px;
     margin-bottom: 20px;
-    background-color: var(--secondary-color);
+    background-color: var(--background-color);
 }
 
 .sign-up-row {
@@ -121,7 +179,7 @@ a {
 }
 
 .sign-up-row input {
-    background-color: #FFFFFF;
+    background-color: var(--background-color);
     border: 1px solid #D6D9DC;
     border-radius: 3px;
     padding: 7px;
@@ -165,6 +223,7 @@ label {
     font-size: var(--smaller-font);
     text-transform: uppercase;
 }
+
 label>span {
     font-weight: normal;
     font-size: 0.2rem;
@@ -179,6 +238,7 @@ label>span {
 span.error {
     color: red;
 }
+
 span.correct {
     color: green;
 }
@@ -213,9 +273,12 @@ button {
     .imageContainer {
         display: none;
     }
-
+    .unFilledIcon {
+        font-variation-settings: 'FILL' 0;
+        color: white;
+    }
     body {
-        background-image: url('images/background.jpg');
+        background-image: var(--background-image);
         background-size: cover;
     }
 
@@ -226,10 +289,12 @@ button {
     .side {
         max-width: 100%;
         width: 100%;
-        color: var(--secondary-color);
+        color: var(--color);
+        background: none;
     }
 
     .sideHeader {
+        color: white;
         background-color: rgba(0, 0, 0, 0.35);
         padding: 10px;
         border: 1px solid transparent;

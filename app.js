@@ -1,3 +1,21 @@
+/*CHANGE THEME*/
+const root = document.documentElement;
+const setTheme = theme => root.className = theme;
+const themeButton = document.querySelector('#themeButton');
+
+function toggleTheme() {
+    const newTheme = root.className === 'dark' ? 'light' : 'dark';
+    if (newTheme === 'dark') {
+        themeButton.classList.remove('unFilledIcon');
+        themeButton.classList.add('filledIcon');
+    } else {
+        themeButton.classList.remove('filledIcon');
+        themeButton.classList.add('unFilledIcon');
+    }
+    root.className = newTheme;
+}
+//////////////////////////
+
 const requiredFields = Array.from(document.querySelectorAll('input.required'));
 const requiredFieldsSpans = Array.from(document.querySelectorAll('input.required + .error'));
 
@@ -70,7 +88,7 @@ lastName.addEventListener('focusout', () => {  //MUST ACTIVATE THIS ON INPUT
 });
 
 email.addEventListener('focusout', () => {
-  const emailValid = email.value.length === 0 || emailRegExp.test(email.value);
+  const emailValid = isFieldEmpty(email) || emailRegExp.test(email.value);
   if (!emailValid) {
     turnInvalid(email);
     emailError.textContent = 'Invalid Email Address';
@@ -78,7 +96,7 @@ email.addEventListener('focusout', () => {
 });
 
 email.addEventListener("input", () => {
-  const emailValid = email.value.length === 0 || emailRegExp.test(email.value);
+  const emailValid = emailRegExp.test(email.value);
   const emailMin = email.value.length >= 9; 
   if (emailValid) {
     turnCorrect(email);
@@ -110,7 +128,7 @@ phone.addEventListener("input", () => {
   }
 });
 phone.addEventListener("focusout", () => {
-  const phoneEmpty = phone.value.length === 0;
+  const phoneEmpty = isFieldEmpty(phone);
   if (phoneEmpty) {
     turnValid(phone);
     phoneError.textContent = "";
@@ -172,17 +190,17 @@ password.addEventListener("focusout", () => {
 
 // This defines what happens when the user tries to submit the data
 form.addEventListener("submit", (event) => {
-  requiredFieldsSpans.forEach(span => (span.textContent = ''))
+  requiredFieldsSpans.forEach(span => (span.textContent = '')) //clears required messages
 
   const firstNameValid = nameRegExp.test(firstName.value);
   const lastNameValid = nameRegExp.test(lastName.value);
   const isEmailValid = emailRegExp.test(email.value);
-  const phoneValid = phoneRegExp.test(phone.value) || phone.value.length === 0;
-  const isPasswordInvalid = !passwordRegExp.test(password.value) && password.value.length !== 0;
+  const phoneValid = phoneRegExp.test(phone.value) || isFieldEmpty(phone);
+  const isPasswordInvalid = !passwordRegExp.test(password.value) && !isFieldEmpty(password);
 
-  const emptyFields = requiredFields.filter(f => (f.value.length === 0));
+  const emptyFields = requiredFields.filter(f => (f.value.length === 0)); //stores empty fields
   
-  if (emptyFields.length !== 0) {
+  if (emptyFields.length !== 0) { // empty fields?
     console.log('There are empty required fields!')
     for (let i = 0; i < emptyFields.length; i++) {  // PRINTS FIELD REQUIRED AT EVERY FIELD WHICH IS EMPTY
       const selectedFieldError = document.querySelector(`#${emptyFields[i].getAttribute('id')} + .error`)
@@ -191,26 +209,19 @@ form.addEventListener("submit", (event) => {
     }
     event.preventDefault();
   } 
-  if (!isEmailValid) {
+
+  if (!isEmailValid) { //invalid email?
     console.log('Email Invalid!')
     event.preventDefault();
   } 
 
-  if (isPasswordInvalid) {
+  if (isPasswordInvalid) { //invalid password?
     turnInvalid(password);
     passwordInfo.classList.add('error')
     event.preventDefault();
   }
 
-  if (!firstNameValid || !lastNameValid) {
+  if (!firstNameValid || !lastNameValid || !phoneValid) { //invalid names or phone? (or)
     event.preventDefault()
   }
-
-  if (!phoneValid) {
-    event.preventDefault()
-  }
-  /*else {
-    turnValid(email);
-    emailError.textContent = ""; 
-  }*/
 });
