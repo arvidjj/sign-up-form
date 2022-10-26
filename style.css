@@ -5,17 +5,18 @@
     --darker-main-color: #ffa939;
 
     --color: black;
-    --secondary-color:white;
-    
+    --secondary-color: white;
+
     --smaller-font: 0.8rem;
     --important-font: 1.2rem;
     --very-important-font: 1.5rem;
     --margin-sider: 25px;
-  }
+}
 
 body {
     font-family: var(--font-family);
-    margin: 0; padding: 0;
+    margin: 0;
+    padding: 0;
     /*display: flex;*/
     box-sizing: border-box;
 }
@@ -34,14 +35,14 @@ form {
 }
 
 .main {
-    display:flex;
+    display: flex;
     min-height: 100vh;
 }
 
 .imageContainer {
-    width:45vw; 
-    height:auto; 
-    
+    width: 45vw;
+    height: auto;
+
     background-image: url('images/background.jpg');
     background-size: cover;
     background-position: center center;
@@ -53,7 +54,7 @@ form {
 
 .imageContainer .imageBanner {
     margin-bottom: auto;
-    margin-top:auto;
+    margin-top: auto;
 
     text-align: center;
     letter-spacing: 8px;
@@ -70,7 +71,7 @@ form {
 
 .side {
     width: 100%;
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
 }
@@ -81,7 +82,7 @@ form {
     /*font-size: min(150px, 100%);*/
 }
 
-.sideHeader >:first-child {
+.sideHeader>:first-child {
     margin-top: 0;
 }
 
@@ -89,7 +90,8 @@ form {
     font-weight: bold;
 }
 
-.main-form p, a {
+.main-form p,
+a {
     font-size: 1rem;
 }
 
@@ -98,51 +100,57 @@ form {
     font-weight: bolder;
 }
 
-.form-inputs h2{
+.form-inputs h2 {
     margin-top: 0;
 }
 
 .form-inputs {
     border: 1px solid transparent;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    color:var(--color);
-    padding:30px;
+    color: var(--color);
+    padding: 30px;
     margin-bottom: 20px;
     background-color: var(--secondary-color);
 }
 
 .sign-up-row {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     display: flex;
     flex-wrap: wrap;
     column-gap: 50px;
 }
 
 .sign-up-row input {
-  background-color: #FFFFFF;
-  border: 1px solid #D6D9DC;
-  border-radius: 3px;
-  padding: 7px;
-  font-size: 14px;
-  margin-right: 7px;
+    background-color: #FFFFFF;
+    border: 1px solid #D6D9DC;
+    border-radius: 3px;
+    padding: 7px;
+    font-size: 14px;
+    margin-right: 7px;
 }
 
+.sign-up-row input.correctField {
+    border: 1px solid green;
+    box-shadow: none;
+    /* Remove default red glow in Firefox */
+}
 
-.sign-up-row input.invalid{
-  border: 1px solid red;
-  /*color: #D55C5F;*/
-  box-shadow: none; /* Remove default red glow in Firefox */
+.sign-up-row input.invalid {
+    border: 1px solid red;
+    /*color: #D55C5F;*/
+    box-shadow: none;
+    /* Remove default red glow in Firefox */
 }
 
 .sign-up-row input.invalid:focus {
     outline: none !important;
-  }
+}
 
-  .sign-up-row input:focus {
+.sign-up-row input:focus {
     outline: none;
     border: 1px solid var(--main-color);
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  }
+}
 
 .sign-up-item {
     display: flex;
@@ -156,12 +164,23 @@ label {
     letter-spacing: 2.5px;
     font-size: var(--smaller-font);
     text-transform: uppercase;
-  }
+}
+label>span {
+    font-weight: normal;
+    font-size: 0.2rem;
+}
 
-span.error {
-    color:red;
+.sign-up-row span {
+    width: 300px;
     font-weight: normal;
     font-size: 0.8rem;
+}
+
+span.error {
+    color: red;
+}
+span.correct {
+    color: green;
 }
 
 .signUpButtonDiv {
@@ -181,7 +200,7 @@ button {
 
 .buttonSignUp {
     background-color: var(--main-color);
-    color:var(--color);
+    color: var(--color);
     font-size: var(--important-font);
     font-weight: bolder;
 }
@@ -192,17 +211,18 @@ button {
 
 @media (max-width: 600px) {
     .imageContainer {
-      display: none;
+        display: none;
     }
 
     body {
         background-image: url('images/background.jpg');
-        background-size: cover; 
+        background-size: cover;
     }
 
     .main {
-        width:100vw;
+        width: 100vw;
     }
+
     .side {
         max-width: 100%;
         width: 100%;
@@ -214,20 +234,22 @@ button {
         padding: 10px;
         border: 1px solid transparent;
         border-radius: 8px;
-        font-size:0.9rem;
+        font-size: 0.9rem;
         margin-left: 0;
     }
 
     .form-inputs {
         margin-bottom: 0;
     }
-    
-    .sign-up-row, .sign-up-item {
+
+    .sign-up-row,
+    .sign-up-item {
         width: 90%;
     }
+
     .sign-up-row input {
         width: 100%;
-      }
+    }
 
     label {
         margin-bottom: 15px;
@@ -244,4 +266,4 @@ button {
         padding-bottom: 15px;
     }
 
-  }
+}
