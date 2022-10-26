@@ -2,6 +2,7 @@
     --font-family: 'Roboto', arial;
     --main-color: #FFBF69;
     --light-main-color: #ffcc8a;
+    --darker-main-color: #ffa939;
 
     --color: black;
     --secondary-color:white;
@@ -17,6 +18,10 @@ body {
     margin: 0; padding: 0;
     /*display: flex;*/
     box-sizing: border-box;
+}
+
+a:hover {
+    text-decoration: none;
 }
 
 h3 {
@@ -85,11 +90,11 @@ form {
 
 .main-form p, a {
     font-size: 1rem;
-    text-decoration: none;
 }
 
 .main-form a {
-    color: var(--main-color);
+    color: var(--darker-main-color);
+    font-weight: bolder;
 }
 
 .form-inputs h2{
@@ -109,6 +114,7 @@ form {
     margin-bottom: 20px;
     display: flex;
     flex-wrap: wrap;
+    column-gap: 50px;
 }
 
 .sign-up-row input {
@@ -121,14 +127,20 @@ form {
 }
 
 
-.sign-up-row input:invalid{
-  border: 1px solid #D55C5F;
-  color: #D55C5F;
+.sign-up-row input.invalid{
+  border: 1px solid red;
+  /*color: #D55C5F;*/
   box-shadow: none; /* Remove default red glow in Firefox */
 }
 
-.sign-up-row input:focus:invalid {
+.sign-up-row input.invalid:focus {
+    outline: none !important;
+  }
+
+  .sign-up-row input:focus {
     outline: none;
+    border: 1px solid var(--main-color);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
 
 .sign-up-item {
@@ -144,6 +156,12 @@ label {
     font-size: var(--smaller-font);
     text-transform: uppercase;
   }
+
+span.error {
+    color:red;
+    font-weight: normal;
+    font-size: 0.8rem;
+}
 
 .signUpButtonDiv {
     margin-left: var(--margin-sider);
@@ -222,6 +240,7 @@ button {
         background-color: rgba(0, 0, 0, 0.35);
         padding-top: 10px;
         margin-left: 0;
+        padding-bottom: 15px;
     }
 
   }

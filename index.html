@@ -45,20 +45,20 @@
                         <div class="sign-up-row">
                             <div class="sign-up-item">
                                 <label for="first_name">First Name *</label>
-                                <input type="text" name="first_name" id="first_name" placeholder="John">
-                                <span class="error"></span>
+                                <input type="text" name="first_name" id="first_name" placeholder="John" class="required">
+                                <span class="error" id="first_name_error"></span>
                             </div>
                             <div class="sign-up-item">
                                 <label for="last_name">Last Name *</label>
-                                <input type="text" name="last_name" id="last_name" placeholder="Doe">
-                                <span class="error"></span>
+                                <input type="text" name="last_name" id="last_name" placeholder="Doe" class="required">
+                                <span class="error" id="last_name_error"></span>
                             </div>
                         </div>
                         <div class="sign-up-row">
                             <div class="sign-up-item">
                                 <label for="email">Email *</label>
-                                <input type="text" name="email" id="email" placeholder="email@example.com">
-                                <span class="error" aria-live="polite" style="color:red;">asd</span>
+                                <input type="text" name="email" id="email" placeholder="email@example.com" class="required">
+                                <span class="error" id="email_error"></span>
                             </div>
                         </div>
                         <div class="sign-up-row">
@@ -71,13 +71,13 @@
                         <div class="sign-up-row">
                             <div class="sign-up-item">
                                 <label for="password">Password *</label>
-                                <input type="password" name="password" id="password" placeholder="Password">
-                                <span class="error"></span>
+                                <input type="password" name="password" id="password" placeholder="Password" class="required">
+                                <span class="error" id="password_error"></span>
                             </div>
                             <div class="sign-up-item">
                                 <label for="confirmpassword">Confirm Password *</label>
-                                <input type="password" name="confirmpassword" id="confirmpassword" placeholder="Confirm Password">
-                                <span class="error"></span>
+                                <input type="password" name="confirmpassword" id="confirmpassword" placeholder="Confirm Password" class="required">
+                                <span class="error" id="confirmpassword_error"></span>
                             </div>
                         </div>
                     </div>
